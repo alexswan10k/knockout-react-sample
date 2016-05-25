@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div class="knockout">
+        <!--<ko-test-component></ko-test-component>-->
+        <!--<ko-test-list></ko-test-list>-->
+        <ko-react-bridge>
+            <!--<div>hello from react</div>
+                <some-component></some-component>
+                <ko-test-component>
+                    
+                </ko-test-component>-->
+            <!--<ko-test-list>
+                    <div>I am a supplied template</div>
+                </ko-test-list>-->
+            <!--<div data-bind="text: 'i am an inner ko controlled div'"></div>    -->
+            <!--<react-list params="length: 100">
+                    <div>
+                        <react-template>
+                            <react-component></react-component>    
+                        </react-template>
+                    </div>    
+                </react-list>-->
+            <!--<react-list params="length: 1000">
+                <div>
+                    <react-template>
+                        <react-template>
+                            <react-template>
+                                <react-template>
+                                    <react-template>
+                                        <react-template>
+                                            <react-component></react-component>
+                                        </react-template>
+                                    </react-template>
+                                </react-template>
+                            </react-template>
+                        </react-template>
+                    </react-template>
+                </div>
+            </react-list>-->
+
+            <!--<react-list params="length: 4">
+                <react-list params="length: 40">
+                    <react-template>
+                        <react-template>
+                            <react-template>
+                                <react-list params="length: 12">
+                                    <react-template>
+                                        <react-template>
+                                            <react-template>
+                                                <react-template>
+                                                    <react-component></react-component>
+                                                </react-template>
+                                            </react-template>
+                                        </react-template>
+                                    </react-template>
+                                </react-list>
+                            </react-template>
+                        </react-template>
+                    </react-template>
+                </react-list>
+            </react-list>-->
+
+        </ko-react-bridge>
+
+        <ko-list params="length: 4">
+            <ko-list params="length: 40">
+                <ko-template>
+                    <ko-template>
+                        <ko-template>
+                            <ko-list params="length: 12">
+                                <ko-template>
+                                    <ko-template>
+                                        <ko-template>
+                                            <ko-component></ko-component>
+                                        </ko-template>
+                                    </ko-template>
+                                </ko-template>
+                            </ko-list>
+
+                        </ko-template>
+                    </ko-template>
+                </ko-template>
+            </ko-list>
+        </ko-list>
+        
+        <!--<ko-list params="length: 4">
+            <div>hello from list</div>
+        </ko-list>-->
+    </div>
+    <div id="react" class="react"></div>
+    <script type="text/javascript" src="bundle.js"></script>
+</body>
+
+</html>

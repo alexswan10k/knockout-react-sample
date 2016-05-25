@@ -1,0 +1,22 @@
+{
+  "name": "knockout-react-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-to-react": "^1.0.0",
+    "http-server": "^0.9.0",
+    "json-loader": "^0.5.4",
+    "knockout": "^3.4.0",
+    "ntypescript": "^1.201605232206.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1"
+  }
+}
