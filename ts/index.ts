@@ -7,6 +7,8 @@ import * as ko from "knockout";
 import * as react from "react";
 import * as reactDOM from "react-dom";
 
+import {SomeComponentList, TestComponentFullSample} from "./ReactComponents/ComponentA";
+
 console.log("I am working");
 
 ko.components.register("ko-component", {
@@ -30,4 +32,6 @@ ko.components.register("ko-react-bridge", {
 //let domElement = react.createElement("div");
 //reactDOM.render(react.createElement(SomeComponentList), document.getElementById('react'));
 //reactDOM.render(react.createElement(SomeKoComponentList), document.getElementById('react'));
+
+//reactDOM.render(react.createElement(TestComponentFullSample), document.getElementById('react'));
 ko.applyBindings({}, document.getElementsByClassName("knockout")[0]);

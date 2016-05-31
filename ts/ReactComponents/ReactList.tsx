@@ -15,10 +15,11 @@ export class ReactList extends React.Component<{params: {length: number}}, {data
 	
 	public render(){
 		return (
-			<span>
+			<span key="list">
 				{
                     this.state.data.map(d =>
-                        this.props.children)}
+                       <span key={d} >{this.props.children}</span>)
+				}
 			</span>	
             
 		);
