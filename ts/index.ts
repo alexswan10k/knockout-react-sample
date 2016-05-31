@@ -2,6 +2,7 @@ import {KoComponent} from "./KnockoutComponents/KoComponent";
 import {KoList} from "./KnockoutComponents/KoList";
 import {KoTemplate} from "./KnockoutComponents/KoTemplate";
 import {KoReactBridge} from "./KnockoutComponents/KoReactBridge";
+import {KoVirtualDom} from "./KnockoutComponents/KoVirtualDom";
 
 import * as ko from "knockout";
 import * as react from "react";
@@ -27,6 +28,11 @@ ko.components.register("ko-template", {
 ko.components.register("ko-react-bridge", {
     viewModel: KoReactBridge,
     template: KoReactBridge.template
+});
+
+ko.components.register("ko-virtual-dom", {
+    viewModel: KoVirtualDom,
+    template: KoVirtualDom.template
 });
 
 //let domElement = react.createElement("div");

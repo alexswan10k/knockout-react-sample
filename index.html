@@ -44,7 +44,7 @@
                 </div>
             </react-list>-->
 
-            <react-list params="length: 4">
+            <!--<react-list params="length: 4">
                 <react-list params="length: 100">
                     <react-template>
                         <react-template>
@@ -64,7 +64,7 @@
                         </react-template>
                     </react-template>
                 </react-list>
-            </react-list>
+            </react-list>-->
 
         </ko-react-bridge>
 
@@ -92,6 +92,12 @@
         <!--<ko-list params="length: 20000">
             <ko-component></ko-component>
         </ko-list>-->
+        
+        <ko-virtual-dom>
+            <ko-list params="length: 20000">
+                <ko-component></ko-component>
+            </ko-list>
+        </ko-virtual-dom>
     </div>
     <div id="react" class="react"></div>
     <script type="text/javascript" src="bundle.js"></script>
