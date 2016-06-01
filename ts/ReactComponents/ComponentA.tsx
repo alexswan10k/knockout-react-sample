@@ -25,6 +25,10 @@ export class ReactComponent extends React.Component<void, { val: number }>
 		return (
 			<div onClick={this.handleClick}>
 				Hello world {this.state.val}
+				<SFComponent>
+					<div>this is a test</div>
+				</SFComponent>
+				<SFComponent2 />
 			</div>
 		);
 	}
@@ -59,11 +63,12 @@ export class ReactComponent extends React.Component<void, { val: number }>
 // };
 
 export class ToKnockout extends React.Component<void, void>{
+	getChildContext(){
+		
+	}
+	
 	componentDidMount() {
-		ko.applyBindings({
-			props: this.props,
-			state: this.state
-		}, reactDOM.findDOMNode(this));
+		ko.applyBindings(this.context, reactDOM.findDOMNode(this));
     }
     componentWillUnmount() {
         ko.cleanNode(reactDOM.findDOMNode(this));
@@ -94,6 +99,14 @@ export class SomeComponentList extends React.Component<number, { data: number[] 
 		);
 	}
 }
+
+export const SFComponent = (props, context) => 
+	<p>{props.children}</p>
+	
+export const SFComponent2 = (props, context) =>
+	<div>General content</div>
+
+React.createElement(SFComponent);
 
 export class SomeKoComponentList extends React.Component<number, { data: number[] }>{
 	constructor() {
