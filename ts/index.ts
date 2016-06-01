@@ -2,6 +2,7 @@ import {KoComponent} from "./KnockoutComponents/KoComponent";
 import {KoList} from "./KnockoutComponents/KoList";
 import {KoTemplate} from "./KnockoutComponents/KoTemplate";
 import {KoReactBridge} from "./KnockoutComponents/KoReactBridge";
+import {KoClusterize} from "./KnockoutComponents/KoClusterize";
 
 import * as ko from "knockout";
 import * as react from "react";
@@ -28,6 +29,11 @@ ko.components.register("ko-react-bridge", {
     viewModel: KoReactBridge,
     template: KoReactBridge.template
 });
+
+ko.components.register("ko-clusterize", {
+    viewModel: KoClusterize,
+    template: KoClusterize.template
+})
 
 //let domElement = react.createElement("div");
 //reactDOM.render(react.createElement(SomeComponentList), document.getElementById('react'));
