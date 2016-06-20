@@ -5,6 +5,8 @@ import * as React from "react";
 // import * as reactMixin from "react-mixin";
 import * as reactDOM from "react-dom";
 // var knockoutMixin = knockoutReact.KnockoutMixin;
+//import * as Infinite from "react-infinite";
+import Infinite = require("react-infinite");
 
 import {ReactList} from "ReactList";
 import {ReactTemplate} from "ReactTemplate";
@@ -105,6 +107,11 @@ export const SFComponent = (props, context) =>
 	
 export const SFComponent2 = (props, context) =>
 	<div>General content</div>
+	
+export const SFInfinite = (props) =>
+	<Infinite containerHeight={200} elementHeight={50}>
+		{props.children}
+	</Infinite>
 
 React.createElement(SFComponent);
 
@@ -161,5 +168,7 @@ export class TestComponentFullSample extends React.Component<number, { data: num
 		);
 	}
 }
+
+
 
 //reactMixin(SomeComponentList, KnockoutMixin2);

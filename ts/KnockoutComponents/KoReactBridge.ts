@@ -3,7 +3,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as htmlToReact from 'html-to-react';
 
-import {ReactComponent, ToKnockout} from '../ReactComponents/ComponentA';
+import {ReactComponent, ToKnockout, SFInfinite} from '../ReactComponents/ComponentA';
 import {ReactList} from '../ReactComponents/ReactList';
 import {ReactTemplate} from '../ReactComponents/ReactTemplate';
 
@@ -62,6 +62,9 @@ const processingInstructions = [
                 
             if(node.name === 'react-template')
                 return React.createElement(ReactTemplate, null, children);
+                
+            if(node.name === 'react-infinite')
+                return React.createElement(SFInfinite, mapParams(node.attribs), children);
             
             return processNodeDefinitions.processDefaultNode(node, children);
         }

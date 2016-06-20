@@ -44,8 +44,8 @@
                 </div>
             </react-list>-->
 
-            <!--<react-list params="length: 4">
-                <react-list params="length: 100">
+            <!--<react-list params="length: 2">
+                <react-list params="length: 40">
                     <react-template>
                         <react-template>
                             <react-template>
@@ -69,11 +69,17 @@
                     </react-template>
                 </react-list>
             </react-list>-->
-            <react-component></react-component>
+            <!--<react-component></react-component>-->
+            
+            <react-infinite>
+                <react-list params="length: 1000">
+                    <react-component></react-component>
+                </react-list>
+            </react-infinite>
         </ko-react-bridge>
 
-        <!--<ko-list params="length: 4">
-            <ko-list params="length: 100">
+        <!--<ko-list params="length: 2">
+            <ko-list params="length: 40">
                 <ko-template>
                     <ko-template>
                         <ko-template>
@@ -96,12 +102,15 @@
                     </ko-template>
                 </ko-template>
             </ko-list>
-        </ko-list>
-        -->
+        </ko-list>-->
+        
         
         <!--<ko-list params="length: 20000">
             <ko-component></ko-component>
         </ko-list>-->
+        
+        
+ 
     </div>
     <div id="react" class="react"></div>
     <div class="unused">
