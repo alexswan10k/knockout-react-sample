@@ -5,6 +5,7 @@ import * as React from "react";
 // import * as reactMixin from "react-mixin";
 import * as reactDOM from "react-dom";
 // var knockoutMixin = knockoutReact.KnockoutMixin;
+import * as reactFauxDom from "react-faux-dom";
 
 import {ReactList} from "ReactList";
 import {ReactTemplate} from "ReactTemplate";
@@ -160,6 +161,25 @@ export class TestComponentFullSample extends React.Component<number, { data: num
 			</ReactList>
 		);
 	}
+}
+
+
+export const KoFauxDomComponent = (props, context) =>
+{
+	var div = reactFauxDom.createElement('div');
+	(div as any).ownerDocument = {documentElement: reactFauxDom.createElement('div')}
+
+	var innerDiv = reactFauxDom.createElement('div');
+	(innerDiv as any).text = "not loaded yet from faux dom";
+	(div as any).children.push(innerDiv);
+	(div as any).childNodes.push(innerDiv);
+
+	innerDiv.setAttribute('data-bind', "text: 'hello from faux dom'");
+
+	ko.applyBindings({}, div);//document.getElementsByClassName("knockout")[0]
+	//var div = new ReactFauxDOM.Element('div');
+
+	return div.toReact();
 }
 
 //reactMixin(SomeComponentList, KnockoutMixin2);

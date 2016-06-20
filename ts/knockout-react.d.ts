@@ -29,3 +29,17 @@ declare var obj: any;
 declare module "knockout-react"{
     export = obj;
 }
+
+declare class ElemTemp extends Element{}
+declare module ReactFauxDom{
+    class Element extends ElemTemp{
+        constructor(tag: string);
+        toReact() : JSX.Element;
+    }
+    function createElement(type: string): Element;
+}
+
+declare module 'react-faux-dom' {
+    //export default ReactFauxDom;
+    export = ReactFauxDom;
+}
