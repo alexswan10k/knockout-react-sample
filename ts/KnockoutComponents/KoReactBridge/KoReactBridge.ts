@@ -3,17 +3,15 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as htmlToReact from 'html-to-react';
 
-import {ReactComponent, ToKnockout} from '../ReactComponents/ComponentA';
-import {ReactList} from '../ReactComponents/ReactList';
-import {ReactTemplate} from '../ReactComponents/ReactTemplate';
+import {ReactComponent, ToKnockout} from '../../ReactComponents/ComponentA';
+import {ReactList} from '../../ReactComponents/ReactList';
+import {ReactTemplate} from '../../ReactComponents/ReactTemplate';
 
-export class KoReactBridge {
+export default class KoReactBridge {
     params: any;
     constructor(params){
         this.params = params;
     }
-    
-    public static template = "<div data-bind='react: {}, props: params'></div>";
 }
 
 const parseWeakJson = (json: string) =>{

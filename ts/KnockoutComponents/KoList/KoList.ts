@@ -1,6 +1,6 @@
 import * as ko from "knockout";
 
-export class KoList {
+export default class KoList {
     public items: number[];
     constructor(params: {length: number}){
         var data = [];
@@ -10,8 +10,4 @@ export class KoList {
 		}
 		this.items = data;
     }
-    
-    static template = "<div data-bind='foreach: items'>\
-        <div data-bind='template: {nodes: $componentTemplateNodes}'></div>\
-        </div>"
 }

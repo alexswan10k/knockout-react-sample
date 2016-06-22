@@ -1,6 +1,12 @@
 node_modules
+jspm_packages
 ts/**/*.js
 bundle.js
 bundle.js.map
 *.jsx
 *.js.map
+build.js
+build.js.map
+ts/**/Generated
+ko-many-different-components.html
+ts/KnockoutComponents/registergenerated.ts

@@ -1,0 +1,15 @@
+import * as ko from "knockout";
+
+
+function registerKo(name: string, path: string, viewModel: string) {
+		ko.components.register(name,
+		 {
+			 template: { require: `${path}/${name}.html!text` },
+			 viewModel: { require: `${path}/${viewModel}` },
+			 synchronous: false
+		 });
+} 
+
+export function init(){
+	@@registration
+}

@@ -6,8 +6,8 @@ import * as React from "react";
 import * as reactDOM from "react-dom";
 // var knockoutMixin = knockoutReact.KnockoutMixin;
 
-import {ReactList} from "ReactList";
-import {ReactTemplate} from "ReactTemplate";
+import {ReactList} from "./ReactList";
+import {ReactTemplate} from "./ReactTemplate";
 
 export class ReactComponent extends React.Component<void, { val: number }>
 {

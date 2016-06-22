@@ -1,33 +1,42 @@
-import {KoComponent} from "./KnockoutComponents/KoComponent";
-import {KoList} from "./KnockoutComponents/KoList";
-import {KoTemplate} from "./KnockoutComponents/KoTemplate";
-import {KoReactBridge} from "./KnockoutComponents/KoReactBridge";
-
 import * as ko from "knockout";
 import * as react from "react";
 import * as reactDOM from "react-dom";
 
-import {SomeComponentList, TestComponentFullSample} from "./ReactComponents/ComponentA";
+import {init as registerKoInit} from "./KnockoutComponents/Generated/registergenerated";
 
-console.log("I am working");
+const applyViewModelLoader =
+{
+    loadViewModel: (name, templateConfig, callback) => {
+        if (!templateConfig)
+            callback(null);
 
-ko.components.register("ko-component", {
-    viewModel: KoComponent,
-    template: KoComponent.template
-});
-ko.components.register("ko-list", {
-    viewModel: KoList,
-    template: KoList.template
-});
-ko.components.register("ko-template", {
-    viewModel: KoTemplate,
-    template: KoTemplate.template
-});
+        //http://knockoutjs.com/documentation/component-loaders.html#loadviewmodelname-templateconfig-callback
+        callback((params, componentInfo) =>
+        {
+            //templateConfig.default is the viewmodels constructor function. Not the ViewModel.
+            return new templateConfig.default(params);
+        });
 
-ko.components.register("ko-react-bridge", {
-    viewModel: KoReactBridge,
-    template: KoReactBridge.template
-});
+    }
+};
+
+registerKoInit();
+
+ko.components.loaders.unshift(applyViewModelLoader);
+
+function registerKo(name: string, path: string, viewModel: string) {
+		ko.components.register(name,
+		 {
+			 template: { require: `${path}/${name}.html!text` },
+			 viewModel: { require: `${path}/${viewModel}` },
+			 synchronous: false
+		 });
+} 
+
+registerKo("ko-component", "./ts/KnockoutComponents/KoComponent", "KoComponent");
+registerKo("ko-list", "./ts/KnockoutComponents/KoList", "KoList");
+registerKo("ko-template", "./ts/KnockoutComponents/KoTemplate", "KoTemplate");
+registerKo("ko-react-bridge", "./ts/KnockoutComponents/KoReactBridge", "KoReactBridge");
 
 //let domElement = react.createElement("div");
 //reactDOM.render(react.createElement(SomeComponentList), document.getElementById('react'));
