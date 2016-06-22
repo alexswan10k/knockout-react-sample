@@ -2,6 +2,8 @@ import * as ko from "knockout";
 import * as react from "react";
 import * as reactDOM from "react-dom";
 
+
+import KoReactBridge from "./KnockoutComponents/KoReactBridge/KoReactBridge";
 import {init as registerKoInit} from "./KnockoutComponents/Generated/registergenerated";
 
 const applyViewModelLoader =
@@ -38,7 +40,12 @@ function registerKo(name: string, path: string, viewModel: string) {
 registerKo("ko-component", "./ts/KnockoutComponents/KoComponent", "KoComponent");
 registerKo("ko-list", "./ts/KnockoutComponents/KoList", "KoList");
 registerKo("ko-template", "./ts/KnockoutComponents/KoTemplate", "KoTemplate");
-registerKo("ko-react-bridge", "./ts/KnockoutComponents/KoReactBridge", "KoReactBridge");
+//registerKo("ko-react-bridge", "./ts/KnockoutComponents/KoReactBridge", "KoReactBridge");
+ko.components.register("ko-react-bridge", {
+    viewModel: {default: KoReactBridge},
+    template: { require: `./ts/KnockoutComponents/KoReactBridge/ko-react-bridge.html!text` }
+});
+
 
 //let domElement = react.createElement("div");
 //reactDOM.render(react.createElement(SomeComponentList), document.getElementById('react'));

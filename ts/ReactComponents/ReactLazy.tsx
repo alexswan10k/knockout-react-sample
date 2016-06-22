@@ -9,11 +9,10 @@ export class ReactLazy extends React.Component<{ promise: Promise<React.Componen
 		});
 	}
 	
-	public render(){
-		return (
-			<span key="lazy">
-				{this.state && this.state.component != null ? (React as any).createElement(this.state.component, null, this.props.children) : "" }
-			</span>	
-		);
+	public render(): JSX.Element {
+		var elem = (this.state && this.state.component != null) 
+			? (React as any).createElement(this.state.component, null, this.props.children) 
+			: null;
+		return elem;
 	}
 }
