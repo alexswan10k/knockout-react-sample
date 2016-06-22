@@ -16,6 +16,9 @@
     },
     "react-mixin/react-mixin.d.ts": {
       "commit": "8d252184e421915fbc9f56a5debcb098e0d2d68d"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "830586ef556be5244f3711587b0c774ddfd959c4"
     }
   }
 }

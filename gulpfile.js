@@ -13,7 +13,7 @@ gulp.task('clean', () =>{
 });
 
 gulp.task('genclean', () =>{
-    return del(["./ts/KnockoutComponents/Generated/**/*"]);
+    return del(["./ts/KnockoutComponents/Generated/**/*", "./ts/ReactComponents/Generated/**/*"]);
 });
 
 gulp.task("generate", ()  =>{
@@ -45,9 +45,20 @@ gulp.task("generate", ()  =>{
                     }
                 ]
             }))
-            .pipe(gulp.dest("./ts/KnockoutComponents/Generated/")) ;      
-    }
+            .pipe(gulp.dest("./ts/KnockoutComponents/Generated/")) ;    
 
+        gulp.src("./ts/ReactComponents/generated.tsx.tmpl")
+            .pipe(rename(name + ".tsx"))
+            .pipe(replace({
+                patterns:[
+                    {
+                        match: 'name',
+                        replacement: name
+                    }
+                ]
+            }))
+            .pipe(gulp.dest("./ts/ReactComponents/Generated/")) ;      
+    }
 
     gulp.src("./ts/KnockoutComponents/registergenerated.ts.tmpl")
         .pipe(rename("registergenerated.ts"))
@@ -75,4 +86,16 @@ gulp.task("generate", ()  =>{
         }))
         .pipe(gulp.dest("./"));
 
+    gulp.src("./react-many-different-components.html.tmpl")
+        .pipe(rename("react-many-different-components.html"))
+        .pipe(replace({
+            patterns:[
+                {
+                    match: 'components',
+                    replacement: names.map(n => `<${n}></${n}>`)
+                        .join("")
+                }
+            ]
+        }))
+        .pipe(gulp.dest("./"));
 });

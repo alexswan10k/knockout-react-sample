@@ -6,6 +6,7 @@ import * as htmlToReact from 'html-to-react';
 import {ReactComponent, ToKnockout} from '../../ReactComponents/ComponentA';
 import {ReactList} from '../../ReactComponents/ReactList';
 import {ReactTemplate} from '../../ReactComponents/ReactTemplate';
+import {ReactLazy} from "../../ReactComponents/ReactLazy";
 
 export default class KoReactBridge {
     params: any;
@@ -60,6 +61,15 @@ const processingInstructions = [
                 
             if(node.name === 'react-template')
                 return React.createElement(ReactTemplate, null, children);
+
+            if(node.name && node.name.startsWith("gen")){
+                var pr : Promise<React.Component<any, any>> = (<any>window).System.import(`./ts/ReactComponents/Generated/${node.name}`)
+                    .then(module => module.default);
+
+                var pwrapper = {promise: pr};
+
+                return React.createElement(ReactLazy, pwrapper, children);
+            }
             
             return processNodeDefinitions.processDefaultNode(node, children);
         }

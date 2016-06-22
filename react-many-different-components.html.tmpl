@@ -1,0 +1,17 @@
+<html>
+<head></head>
+<body>
+    <div class="knockout">
+        <ko-react-bridge>
+            @@components
+        </ko-react-bridge>
+    </div>
+    <div id="react" class="react"></div>
+
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        SystemJS.import('./ts/index')
+    </script>
+</body>
+</html>

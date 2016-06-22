@@ -20,6 +20,8 @@ const applyViewModelLoader =
     }
 };
 
+
+ko.options.deferUpdates = true;
 registerKoInit();
 
 ko.components.loaders.unshift(applyViewModelLoader);
@@ -44,3 +46,10 @@ registerKo("ko-react-bridge", "./ts/KnockoutComponents/KoReactBridge", "KoReactB
 
 //reactDOM.render(react.createElement(TestComponentFullSample), document.getElementById('react'));
 ko.applyBindings({}, document.getElementsByClassName("knockout")[0]);
+
+if (!(String as any).prototype.startsWith) {
+    (String as any).prototype.startsWith = function(searchString, position){
+      position = position || 0;
+      return this.substr(position, searchString.length) === searchString;
+  };
+}
